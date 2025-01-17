@@ -22,7 +22,7 @@ const ThreeDSimulation = () => {
       setLoading(true);
       setError(null);
 
-      const YOUR_API = "msy_SgBJdCLl2QBv0aPqGW1DTfld6lcrlzL2WCO9";
+      const YOUR_API = "msy_KZKdFhJUifc1g7d4Dt2xfSJqIYjldBzpn2Ui";
       const headers = { Authorization: `Bearer ${YOUR_API}` };
 
       const payload = {

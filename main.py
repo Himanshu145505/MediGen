@@ -8,7 +8,7 @@ import nest_asyncio
 from fastapi.middleware.cors import CORSMiddleware
 
 # Configure Google Generative AI
-genai.configure(api_key="AIzaSyBnoS7nX8mIhvuo5H1s9ZOCw5nSyfMMgnk")  # Replace with your valid API key
+genai.configure(api_key="AIzaSyAztXHR7_81ezfqI6tQ1eKgugTjDIJPyWQ")  # Replace with your valid API key
 
 # Initialize the Gemini 1.5 Flash model
 model = genai.GenerativeModel("gemini-1.5-flash")
@@ -71,7 +71,7 @@ async def generate_report(data: PatientData):
         **Lab Results**: {data.Lab_Results if data.Lab_Results else 'Not Provided'}
         **Medical Imaging Files**: {data.Medical_Imaging_Files if data.Medical_Imaging_Files else 'Not Provided'}
 
-        Analyze the above data and determine if the patient needs a transplant or replacement.
+        Analyze the above data and determine if the patient needs an organ/tissue or any transplant or replacement.
         If yes, determine the level of severity of the need: low, moderate, or high. If no transplant is required, state "null".
 
         If a transplant is required, generate a prompt for another model that will create a 3D anatomical model of the healthy organ or tissue that needs to be replaced. The 3D model should be functional and detailed. For example: 
@@ -84,7 +84,7 @@ async def generate_report(data: PatientData):
 **severity**: The severity level (low, moderate, high) or null
 Return the transplant prompt at the end of the response, and avoid using any quotation marks in the response.
         """
-
+        print("Prompt:", prompt)
         # Generate the report using the Gemini API
         response = model.generate_content(prompt)
 
